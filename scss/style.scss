@@ -1,0 +1,358 @@
+// stylization
+@import 'common/common';
+
+//add fonts
+@font-face {
+    font-family: 'Macondo';
+    src: url("../fonts/Macondo-Regular.eot");
+    src: url("../fonts/Macondo-Regular.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/Macondo-Regular.woff") format("woff"),
+    url("../fonts/Macondo-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url("../fonts/Raleway-VariableFont_wght.eot");
+    src: url("../fonts/Raleway-Italic-VariableFont_wght.eot?#iefix")format("embedded-opentype"),
+    url("../fonts/Raleway-Italic-VariableFont_wght.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+body{
+    scrollbar-width: none;
+}
+
+img{
+    object-fit: cover;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+h1, h2, h3{
+    font-weight: 100;
+    text-transform: uppercase;
+    font-family: 'Macondo';
+}
+h4{
+    font-weight: 100;
+    text-transform: uppercase;
+    font-family: 'Macondo';
+    color: #fff; 
+    margin: 0 auto;
+}
+.soundbutton{
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+    cursor: pointer;
+    width: 100px;
+    transition: .25s ease;
+}
+.soundbutton.paused{
+    opacity: .4;
+}
+:root{
+    --index: calc(1vw + 1vh);
+    --gutter: 30px;
+    --side-small: 28;
+    --side-big:38;
+    --depth: 7000px;
+    --transition: .75s cubic-bezier(.075, .5, 0,1);
+}
+body{
+    // background-image: url(../media/img/img-backg33.jpg);
+    // background-size: cover;
+    // background-position: center;
+    background-color: rgb(0, 0, 0);
+    font-size: calc(var(--index)*.8);
+    font-family: 'Raleway';
+    line-height: 1.75;
+    height: var(--depth);
+    background-attachment: fixed;
+}
+.carusel{
+    overflow: hidden;
+}
+.swiper{
+    width: 100vw;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    perspective: 1500px;
+}
+.gallery{
+    transform-style: preserve-3d;
+    height: 100%;
+    position: relative;
+}
+.frame{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition),opacity .75s ease;
+    will-change: transform;
+    transform-style: preserve-3d;
+    & h2, h1{
+        text-align: center;
+        font-size: calc(var(--index)*5);
+        color: rgb(255, 255, 255);
+        width: min-content;
+        line-height: 1;
+    }
+    .frame-media{
+        position: relative;
+        background-position: center;
+        background-size: cover;
+        width:calc(var(--index)*var(--side-small));
+        height:calc(var(--index)*var(--side-big)) ;  
+    }
+    .frame-media__left{
+        right: calc(var(--side-small)/2*var(--index) + var(--gutter));
+    }
+    .frame-media__right{
+        left: calc(var(--side-small)/2*var(--index) + var(--gutter));
+    }
+    video.frame-media{
+        width:calc(var(--index)*var(--side-big));
+        height:calc(var(--index)*var(--side-small));
+    }
+    video.frame-media__right{
+        left: calc(var(--side-big)/2*var(--index) + var(--gutter));
+    }
+    video.frame-media__left{
+        right: calc(var(--side-big)/2*var(--index) + var(--gutter));
+    }
+    .text__right > *{
+        position: relative;
+        left: 30vw;
+    }
+    .text__left > *{
+        position: relative;
+        right: 30vw;
+    }
+    h3{
+        font-size: calc(var(--index)*3);
+        color: #fff;
+        line-height: 1;
+    }
+    p{
+        max-width: 55vw;
+        color: #fff;
+        font-family: 'Raleway';
+        margin-top: 5vh;
+        font-size: calc(var(--index)*1.5);
+    }
+}
+.frame_bg{
+    background-color: rgba(0, 0, 0, .8);
+}
+
+.set{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.set div{
+    position: absolute;
+    display: block;
+}
+.set div:nth-child(1){
+    left:20%;
+    animation: animate 15s linear infinite;
+    animation-delay: -7s;
+}
+.set div:nth-child(2){
+    left:50%;
+    animation: animate 20s linear infinite;
+    animation-delay: -5s;
+}
+.set div:nth-child(3){
+    left:70%;
+    animation: animate 20s linear infinite;
+    animation-delay: 0s;
+}
+.set div:nth-child(4){
+    left:0%;
+    animation: animate 15s linear infinite;
+    animation-delay: -5s;
+}
+.set div:nth-child(5){
+    left:85%;
+    animation: animate 18s linear infinite;
+    animation-delay: -10s;
+}
+.set div:nth-child(6){
+    left:0%;
+    animation: animate 12s linear infinite;
+}
+.set div:nth-child(7){
+    left:15%;
+    animation: animate 14s linear infinite;
+}
+.set div:nth-child(8){
+    left:60%;
+    animation: animate 15s linear infinite;
+}
+.set div:nth-child(9){
+    left:90%;
+    animation: animate 11s linear infinite;
+}
+.set div:nth-child(10){
+    left:50%;
+    animation: animate 8s linear infinite;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        top:-10%;
+        transform: translateX(20px) rotate(0deg);
+    }
+    10%{
+        opacity: 1;
+    }
+    20%{
+        transform: translateX(-20px) rotate(45deg);
+    }
+    40%{
+        transform: translateX(-20px) rotate(90deg);
+    }
+    60%{
+        transform: translateX(20px) rotate(180deg);
+    }
+    80%{
+        transform: translateX(-20px) rotate(180deg);
+    }
+    100%{
+        top:110%;
+        transform: translateX(-20px) rotate(225deg);
+    }
+}
+.set2{
+    transform: scale(2);
+    transform: rotateY(180deg);
+    filter: blur(2px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.set2 div{
+    position: absolute;
+    display: block;
+}
+.set2 div:nth-child(1){
+    left:20%;
+    animation: animate 15s linear infinite;
+    animation-delay: -7s;
+}
+.set2 div:nth-child(2){
+    left:50%;
+    animation: animate 20s linear infinite;
+    animation-delay: -5s;
+}
+.set2 div:nth-child(3){
+    left:70%;
+    animation: animate 20s linear infinite;
+    animation-delay: 0s;
+}
+.set2 div:nth-child(4){
+    left:0%;
+    animation: animate 15s linear infinite;
+    animation-delay: -5s;
+}
+.set2 div:nth-child(5){
+    left:85%;
+    animation: animate 18s linear infinite;
+    animation-delay: -10s;
+}
+.set2 div:nth-child(6){
+    left:0%;
+    animation: animate 12s linear infinite;
+}
+.set2 div:nth-child(7){
+    left:15%;
+    animation: animate 14s linear infinite;
+}
+.set2 div:nth-child(8){
+    left:60%;
+    animation: animate 15s linear infinite;
+}
+.set2 div:nth-child(9){
+    left:50%;
+    animation: animate 8s linear infinite;
+}
+.set2 div:nth-child(10){
+    left:25%;
+    animation: animate 8s linear infinite;
+}
+.set3{
+    transform: scale(.8);
+    transform: rotateX(180deg);
+    filter: blur(4px);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+.set3 div{
+    position: absolute;
+    display: block;
+}
+.set3 div:nth-child(1){
+    left:20%;
+    animation: animate 15s linear infinite;
+    animation-delay: -7s;
+}
+.set3 div:nth-child(2){
+    left:50%;
+    animation: animate 20s linear infinite;
+    animation-delay: -5s;
+}
+.set3 div:nth-child(3){
+    left:70%;
+    animation: animate 20s linear infinite;
+    animation-delay: 0s;
+}
+.set3 div:nth-child(4){
+    left:0%;
+    animation: animate 15s linear infinite;
+    animation-delay: -5s;
+}
+.set3 div:nth-child(5){
+    left:85%;
+    animation: animate 18s linear infinite;
+    animation-delay: -10s;
+}
+.set3 div:nth-child(6){
+    left:0%;
+    animation: animate 12s linear infinite;
+}
+.set3 div:nth-child(7){
+    left:15%;
+    animation: animate 14s linear infinite;
+}
+.set3 div:nth-child(8){
+    left:60%;
+    animation: animate 15s linear infinite;
+}
+.set3 div:nth-child(9){
+    left:50%;
+    animation: animate 13s linear infinite;
+}
+.set3 div:nth-child(10){
+    left:25%;
+    animation: animate 8s linear infinite;
+}
