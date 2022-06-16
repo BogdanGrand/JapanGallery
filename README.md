@@ -1,1 +1,1 @@
-https://bogdangrand.github.io/JapanGallery/
+link on the page: https://bogdangrand.github.io/JapanGallery/
